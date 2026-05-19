@@ -1,0 +1,18 @@
+<h3>User list</h3>
+
+<!-- 
+usage with ngOnInit
+<ul>
+  @for(user of users; track user.id){
+    <li> {{ user.name }} - ({{ user.email }}) </li>
+  }
+</ul> 
+-->
+
+
+<!-- usage with signal -->
+<ul>
+  @for(user of users(); track user.id){
+    <li> {{ user.name }} - ({{ user.email }}) </li>
+  }
+</ul> 
