@@ -1,0 +1,67 @@
+<p>Counter-app!</p>
+<div class="counter">
+    <h1>{{counter}}</h1>
+</div>
+<div class="btn">
+    <button (click)="handle('add')">+</button>
+    <button (click)="handle('subtract')">-</button>
+    <button (click)="handle('reset')">Reset</button>
+</div>
+
+<p>Counter-app with signals!</p>
+<div class="counter">
+    <h1>{{count_s()}}</h1>
+</div>
+<div class="btn">
+    <button (click)="handle_s('add')">+</button>
+    <button (click)="handle_s('subtract')">-</button>
+    <button (click)="handle_s('reset')">Reset</button>
+</div>
+
+  <p>Computed signals</p>
+<div>
+    <h1>{{count_a()}}</h1>
+    <h1>{{double_count()}}</h1>
+    <h1>{{triple_count()}}</h1>
+    <button (click)="increment()">Increment</button>
+</div>
+
+<p>signals and computed signals</p>
+<h1>{{first_name()}}</h1>
+<h1>{{last_name()}}</h1>
+<h1>{{full_name()}}</h1>
+
+<p>Total: {{total()}}</p>
+
+<br>
+<button (click)="increment_effect()">increment effect</button>
+
+
+<!-- pipes usecaes -->
+<h2>{{lName | uppercase}}</h2>
+<h2>{{uName | lowercase}}</h2>
+<p>Short date : {{today | date:'short'}}</p>
+<p>Full date : {{today | date:'fullDate'}}</p>
+<p>Custom date : {{today | date:'dd/MM/yyyy'}}</p>
+ <p>INR :{{amount | currency : 'INR'}}</p>        <!--default value is dollar-->
+  <p>INR :{{amount | currency : 'INR':'symbol':'1.0-0'}}</p>        
+  <p>INR :{{amount | currency : 'EUR'}}</p>
+  <p>{{user1 | json}}</p>
+
+  <h1>{{fullNames | pipeShortName}}</h1>
+
+  <h1> dollar : {{usd}}</h1>
+  <h1> after convert: {{usd | convert:con_rate}}</h1>
+
+  <h1> with custom and commonmodule pipes {{usd | convert:con_rate|currency:'INR'}}</h1>
+
+  <input [value]="name_two_way_binding()" (input)="name_two_way_binding.set($event.target.value)">
+  <p>{{name_two_way_binding()}}</p>
+
+  <input [value]="user_twb().name" (input)="updateName($event.target.value)" >
+  <br>
+  <p> updated name : {{user_twb().name}}</p>
+
+  <input [value]="user_twb().age" (input)="updateAge($event.target.value)" >
+  <br>
+  <p> updated age : {{user_twb().age}}</p>

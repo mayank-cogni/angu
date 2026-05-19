@@ -1,0 +1,83 @@
+<p>events works!</p>
+<button (click)="increment()">Click me</button>
+<p> Count : {{count1}}</p>
+
+<button (click)="increment2()">Click me2</button>
+<p> Count2 : {{count2()}}</p>
+
+<button (click)="showEvent($event)">Show Event</button>
+
+<input (input)="updateUser($event.target.value)" placeholder="Enter your name">
+<p>Your name : {{username}}</p>
+
+<form (submit)="handleSubmit($event)">
+    <input placeholder="email">
+    <button type="submit">Submit</button>
+</form>
+
+@if (isLoggedIn) {
+<h1>if mein hain ji Hello ji kaise ho</h1>
+} @else {
+<h1>else mein hain ji</h1>}
+
+@if(marks >=70){
+    <h1>You passed! with A</h1>
+}
+@else if(marks >= 40){
+    <h1>You passed with D</h1>
+}
+@else {
+    <h1>You failed.</h1>
+}
+
+@switch (page) {
+  @case ('Home') {
+    <h1>Home Page</h1>
+  }
+  @case ('About') {
+    <h1>About Page</h1>
+  }
+  @default {
+    <h1>Page Not Found</h1>
+  }
+}
+
+<input (input)="updateC($event.target.value)" placeholder="Enter Category"/>
+@switch (categories) {
+  @case ('technology') {
+    <h1>Technology Category</h1>
+  }
+  @case ('sports') {
+    <h1>Sports Category</h1>
+  }
+  @default {
+    <h1>Category Not Found</h1>
+  }
+}
+
+@for (item of arr; track $index) {
+    <p>{{$index}}.{{item}}</p>
+}
+
+@for (u of users; track u.name) {
+    <p>{{u.name}}, Age: {{u.age}}</p>
+}
+
+@for(f of fruits; track $index;
+let i = $index;
+let c= $count) {
+    @if($last){
+        <p>This is the last fruit.{{f}}</p>
+    }
+    @else if($first){
+        <p>This is the first fruit.{{f}}</p>
+    }
+    @else{
+
+        <p>{{f}}</p>
+    }
+    <!-- <button (click)="removeFruit(i)">Remove</button> -->
+     <!-- <p>Total count: {{fruits.length}}</p>
+     <p>Total count by $count: {{c}}</p> -->
+}
+  

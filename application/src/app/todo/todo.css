@@ -1,0 +1,102 @@
+/* Container styling */
+:host {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Input & Add Button area */
+input {
+  width: 70%;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+button:first-of-type { /* The Add button */
+  background-color: #007bff;
+  color: white;
+  margin-left: 5px;
+}
+
+button:first-of-type:hover {
+  background-color: #0056b3;
+}
+
+/* The List */
+hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #f9f9f9;
+  transition: background 0.2s;
+}
+
+li:hover {
+  background-color: #fcfcfc;
+}
+
+/* Task Text */
+li span:first-child { /* The index number */
+  font-size: 0.8rem;
+  color: #999;
+  margin-right: 12px;
+  min-width: 20px;
+}
+
+li span:nth-child(2) { /* The todo text */
+  flex-grow: 1; /* Pushes delete button to the end */
+  cursor: pointer;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* The Delete Button */
+li button {
+  background-color: #ffeded;
+  color: #ff4d4d;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+}
+
+li button:hover {
+  background-color: #ff4d4d;
+  color: white;
+}

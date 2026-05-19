@@ -1,0 +1,14 @@
+<!-- <p>login works!</p> -->
+<h1>{{title}}</h1>
+<img [src]='imgUrl' alt="Image">
+<!-- <img src={{imgUrl}}>        this is not the right way we can use it byt we should not -->
+
+<button [disabled]="isDisabled">Login button</button>
+<input [value]="username" />
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" placeholder="Enter your name">
+<div [class.active]="isActive">This div is active</div>
+
+<div [style.width.px]="boxWidth" [style.backgroundColor]="bgColor">This div has a dynamic width and background color</div>
+
+<p [innerText]="'count: ' + count()"></p>       <!-- things inside '' represent string not variable -->

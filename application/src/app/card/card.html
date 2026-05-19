@@ -1,0 +1,7 @@
+<p>card works!</p>
+<div class="card">
+    <h3>{{ title() }}</h3>  <!--this is coming here by parent child relation thing so no need of ng-content -->
+    <p>{{description() }}</p>
+    <ng-content></ng-content>   <!--it is allowing us to add the components like div,button add 
+                                here   i am using them form app.html         -->
+</div>

@@ -1,0 +1,168 @@
+<h1>My App</h1>
+<nav>
+  <a routerLink="'/">Home</a>    <!-- for home it was empty-->
+  <a routerLink="/about">About</a> <!-- should match with the path configured in app.routes.ts-->
+                                    <!-- like here 'about' is matching path in app.routes.ts file -->
+  <a routerLink="/contact">Contact</a>
+</nav>
+<hr>
+ <router-outlet></router-outlet>     
+ <!--this is not an component we write it here to use the component here -->
+
+
+
+<h1>mayank</h1>
+
+<!-- showing usage of button cards -->
+ <!-- label is acting as link and is coming from button.ts and we are giving it the value as save -->
+  <!-- clicked is also acting as link and is coming from button
+   we have to give same name to input and output variable to make a link  -->
+<app-button 
+  [label]="'Save'"
+  (clicked)="onSave($event)"></app-button>
+
+<!-- showing usage of cards -->
+ <!-- here we are sending from parent to child and we send through variABLE -->
+  <!-- if want to share the tag than u have to use ngcontent in child.html file-->
+ <app-card 
+ [title]="'Angular dev course'"   
+ [description]="'learn angular'">
+  <p>This is coming from parent</p>
+  <button>click me</button>
+ </app-card>
+
+<!-- this is through ngmodel template driven form this is old way of form  -->
+ <!-- for this in ts we have to import FormsModule -->
+<!-- <input 
+[(ngModel)]="name"
+(ngModelChange)="name.set($event)"
+placeholder="Enter your name"
+>
+<br><br>
+<input 
+[(ngModel)]="email"
+(ngModelChange)="email.set($event)"
+placeholder="Enter your email"
+>
+<br><br>
+<button (click)="submitForm()">Submit</button>
+<p>Name: {{name()}}</p>
+<p>Name: {{email()}}</p> -->
+<!-- ngmodel form end -->
+
+
+<!-- for this we have to import the reactiveformsmodule -->
+<h2>Signal reactive form</h2>
+<form [formGroup]="form">
+  <input formControlName="name" placeholder="Name">
+  <br>
+  <input formControlName="email" placeholder="email">
+  <br>
+</form>
+<button (click)="submitForm()">Submit</button>
+<p>values</p>
+<pre>{{userSignal() |json}}</pre>
+<!--  -->
+
+<!--  -->
+
+
+<!-- <p>Mayank {{name}}</p>  -->
+<!-- <p>{{age}}</p>
+<p>{{9+4}}</p>
+<p> {{isAdmin ? "Welcome admin" : "Welcome user"}}</p> -->
+
+
+<!-- example of user signal store of counter app -->
+<!-- <h2>counter app</h2>
+<p>Current Count: {{ counterStore.count() }}</p>
+<button (click)="counterStore.increment()">+</button><br>
+<button (click)="counterStore.decrement()">-</button><br>
+<button (click)="counterStore.reset()">Reset</button> -->
+
+<!-- <h2>User store </h2>
+@if(userStore.user()){
+  <p>Welcome {{userStore.user()?.name}}</p>   -->
+  <!-- i have used ? in above line because i have make the user as type of user and null -->
+  <!-- @if(userStore.isAdmin()){
+    <p>Admin access</p>
+  }
+  <button (click)="userStore.logout()">Logout</button>
+}
+@else{
+    <button (click)="userStore.login('Mayank','admin')">Login as admin</button>
+} -->
+
+<!-- <p> {{name, age, isAdmin}}</p>      this is wrong -->
+  <!-- <p> {{name}} {{age}} {{isAdmin}}</p>      this is correct -->
+<app-todo></app-todo>
+<br><br><br>
+  <app-login></app-login>
+<app-signin></app-signin>
+<app-events></app-events>
+<app-counter-app> </app-counter-app>
+
+
+<!-- new,assignment,arrow, loops, template,literals, directly accessing dom
+all these are not allowed directly -->
+
+<!-- 
+1. What you CANNOT do (Strictly Forbidden)
+Angular will throw an error if you try to do these things inside interpolation:
+
+Assignments: You cannot change a variable's value.
+
+❌ {{ name = 'New Name' }}
+
+Increment/Decrement: You cannot use ++ or --.
+
+❌ {{ age++ }}n
+
+The new Keyword: You cannot instantiate objects.
+
+❌ {{ new Date() }}
+
+Bitwise Operators: You cannot use | or & (unless they are Angular Pipes, which use the same symbol but work differently). -->
+
+<!-- <p>{{title()}}</p>
+<p>{{getUser()}} </p> -->
+
+<!-- ******************************************************************************************************* -->
+
+<!-- 
+1. template (Inline HTML)
+You use this when your HTML is very short (usually 1–5 lines). You write the HTML directly inside the @Component decorator using backticks (`).
+
+Pros: Everything is in one file; easier to see the logic and view at once for small components.
+
+Cons: Becomes messy and hard to read if the HTML is long; no specialized syntax highlighting in some editors.
+
+TypeScript
+@Component({
+  selector: 'app-mini-login',
+  template: `
+    <div>
+      <h1>Login here</h1>
+      <button>Submit</button>
+    </div>
+  `
+})
+export class MiniLogin {}
+2. templateUrl (External File)
+This is the standard approach for most Angular components. You provide a path to a separate .html file.
+
+Pros: Keeps your code organized (separation of concerns); full IDE support for HTML (autocompletion, formatting); much easier to maintain for complex layouts.
+
+Cons: You have to jump between two files (the .ts and the .html).
+
+TypeScript
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.html' // Points to a separate file in the same folder
+})
+export class Login {}
+-->
+
+<div class="hero-box">
+  Welcome Mayank
+</div>
